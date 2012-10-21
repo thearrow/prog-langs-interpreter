@@ -1,30 +1,29 @@
 public class DeclSeq {
-    private Decl d;
+    private Decl    d;
     private DeclSeq ds;
 
     public DeclSeq() {
-        d = null;
+        d  = null;
         ds = null;
     }
 
-    void ParseDeclSeq(){
+    void ParseDeclSeq() {
         d = new Decl();
         d.ParseDecl();
-
-        if(!Tokenizer.INSTANCE.getToken().equals("begin")){
+        if (!Tokenizer.INSTANCE.getToken().equals("begin")) {
             ds = new DeclSeq();
             ds.ParseDeclSeq();
+        } else {
+            Tokenizer.INSTANCE.skipToken();
         }
-        else Tokenizer.INSTANCE.skipToken();
-
     }
 
-    void PrintDeclSeq(){
+    void PrintDeclSeq() {
         d.PrintDecl();
-        if(ds != null) ds.PrintDeclSeq();
+        if (ds != null) {
+            ds.PrintDeclSeq();
+        }
     }
 
-    void ExecDeclSeq(){
-
-    }
+    void ExecDeclSeq() {}
 }

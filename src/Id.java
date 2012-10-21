@@ -1,36 +1,34 @@
 import java.util.HashMap;
 
 public class Id {
-
-    private String name;
-    private int val;
-    private Boolean declared;
-    private Boolean initialized;
-    private static HashMap<String,Id> idSet = new HashMap<String, Id>();
+    private static HashMap<String, Id> idSet = new HashMap<String, Id>();
+    private String                     name;
+    private int                        val;
+    private Boolean                    declared;
+    private Boolean                    initialized;
 
     private Id(String n) {
-        name = n;
-        declared = false;
-        initialized =false;
-        val = -1;
+        name        = n;
+        declared    = false;
+        initialized = false;
+        val         = -1;
     }
 
-    public static Id ParseId(){
+    public static Id ParseId() {
         String token = Tokenizer.INSTANCE.getToken();
-        if(idSet.containsKey(token))
+
+        if (idSet.containsKey(token)) {
             return idSet.get(token);
-        else{
+        } else {
             Id id = new Id(token);
             idSet.put(token, id);
             return id;
         }
     }
 
-    void PrintId(){
+    void PrintId() {
         System.out.print(name);
     }
 
-    void ExecId(){
-
-    }
+    void ExecId() {}
 }
