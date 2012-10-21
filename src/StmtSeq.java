@@ -19,7 +19,10 @@ public class StmtSeq {
     }
 
     void PrintStmtSeq(){
-
+        st.PrintStmt();
+        if (sq != null) {
+            sq.PrintStmtSeq();
+        }
     }
 
     void ExecStmtSeq(){
