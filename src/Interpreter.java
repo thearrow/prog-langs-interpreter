@@ -14,6 +14,10 @@ public class Interpreter {
 
         // Initialize Tokenizer
         Tokenizer.INSTANCE.tokenize(args[0]);
+
+        Prog program = new Prog();
+        program.ParseProg();
+        program.PrintProg();
     }
 }
 
