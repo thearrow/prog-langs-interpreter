@@ -12,14 +12,4 @@ program int X , Y , XY ;
 
                write Y ;
 
-               if ( X >= Y ) then
-
-               X = X-1;
-
-               else
-
-               X = X+1;
-
-               end;
-
           end
