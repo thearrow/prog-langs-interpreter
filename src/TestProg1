@@ -1,7 +1,14 @@
 program int X , Y , XY ;
 
-          begin
-          read X;
-          write Y;
+begin
+    read X;
+    write X;
+    Y = 0;
+    X = Y+(4*2+X);
 
-          end
+    while (X>0) loop
+        read XY;
+    end
+
+
+end

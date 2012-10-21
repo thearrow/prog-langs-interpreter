@@ -1,19 +1,32 @@
 public class Exp {
     private Fac fac;
+    private enum PM {
+        PLUS,
+        MINUS,
+        NONE
+    }
+    private PM pm;
     private Exp exp;
 
     public Exp() {
         fac = null;
         exp = null;
+        pm = PM.NONE;
     }
 
     void ParseExp(){
         fac = new Fac();
         fac.ParseFac();
-        Tokenizer.INSTANCE.skipToken();
+
         String token = Tokenizer.INSTANCE.getToken();
-        if(token.equals("+") || token.equals("-")){
-            System.out.println("+/-");
+        if(token.equals("+")){
+            pm = PM.PLUS;
+            Tokenizer.INSTANCE.skipToken();
+            exp = new Exp();
+            exp.ParseExp();
+        }
+        else if(token.equals("-")){
+            pm = PM.MINUS;
             Tokenizer.INSTANCE.skipToken();
             exp = new Exp();
             exp.ParseExp();
@@ -21,7 +34,10 @@ public class Exp {
     }
 
     void PrintExp(){
-
+        if(fac != null) fac.PrintFac();
+        if(pm == PM.PLUS) System.out.print("+");
+        if(pm == PM.MINUS) System.out.print("-");
+        if(exp != null) exp.PrintExp();
     }
 
     void ExecExp(){
