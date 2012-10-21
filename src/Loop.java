@@ -20,9 +20,9 @@ public class Loop {
     }
 
     void PrintLoop(){
-        System.out.print("while");
+        System.out.print("while ");
         c.PrintCond();
-        System.out.println("loop");
+        System.out.println(" loop");
         ss.PrintStmtSeq();
         System.out.println("end");
     }
