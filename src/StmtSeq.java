@@ -10,7 +10,8 @@ public class StmtSeq {
     void ParseStmtSeq() {
         st = new Stmt();
         st.ParseStmt();
-        if (!Tokenizer.INSTANCE.getToken().equals("end") &&!Tokenizer.INSTANCE.getToken().equals("else")) {
+        String token = Tokenizer.INSTANCE.getToken();
+        if (!token.equals("end") &&!token.equals("else")) {
             sq = new StmtSeq();
             sq.ParseStmtSeq();
         }
@@ -24,5 +25,10 @@ public class StmtSeq {
         }
     }
 
-    void ExecStmtSeq() {}
+    void ExecStmtSeq() {
+        st.ExecStmt();
+        if (sq != null) {
+            sq.ExecStmtSeq();
+        }
+    }
 }

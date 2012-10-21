@@ -45,5 +45,11 @@ public class Stmt {
         if(out != null) out.PrintOutput();
     }
 
-    void ExecStmt() {}
+    void ExecStmt() {
+        if(a != null) a.ExecAssign();
+        if(i != null) i.ExecIf();
+        if(loop != null) loop.ExecLoop();
+        if(in != null) in.ExecInput();
+        if(out != null) out.ExecOutput();
+    }
 }

@@ -1,5 +1,23 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Input {
     private IdList idl;
+    private static int pos = 0;
+    private static ArrayList<String> input = new ArrayList<String>();
+
+    static {
+        try {
+            Scanner scn = new Scanner(new File(Interpreter.data), "UTF-8").useDelimiter("\\s+");
+            while (scn.hasNext()) {
+                input.add(scn.next());
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Couldn't find the data file.");
+        }
+    }
 
     public Input() {
         idl = null;
@@ -18,6 +36,14 @@ public class Input {
     }
 
     void ExecInput(){
+        pos = idl.ReadIdList(pos);
+    }
 
+    public static int getVal(int p) {
+        if (p >= input.size()) {
+            //System.exit(1);
+        }
+        //System.out.println("looking at:" + p);
+        return Integer.valueOf(input.get(p));
     }
 }

@@ -6,18 +6,25 @@ See README, DOC
 */
 
 public class Interpreter {
+
+    public static String program,data;
+
     public static void main(String[] args) {
         if (args.length < 2) {
             System.out.println("Please enter proper arguments!\n");
             System.exit(1);
         }
 
+        program = args[0];
+        data = args[1];
+
         // Initialize Tokenizer
-        Tokenizer.INSTANCE.tokenize(args[0]);
+        Tokenizer.INSTANCE.tokenize(program);
 
         Prog program = new Prog();
         program.ParseProg();
         program.PrintProg();
+        program.ExecProg();
     }
 }
 

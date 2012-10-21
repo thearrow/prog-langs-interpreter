@@ -28,5 +28,19 @@ public class Comp {
         System.out.print(")");
     }
 
-    void ExecComp() {}
+    public boolean EvalComp() {
+        if(compOp.getOp() == CompOp.CompSymb.EQ)
+            return op1.getVal() == op2.getVal();
+        else if(compOp.getOp() == CompOp.CompSymb.NOTEQ)
+            return op1.getVal() != op2.getVal();
+        else if(compOp.getOp() == CompOp.CompSymb.LESS)
+            return op1.getVal() < op2.getVal();
+        else if(compOp.getOp() == CompOp.CompSymb.GREATER)
+            return op1.getVal() > op2.getVal();
+        else if(compOp.getOp() == CompOp.CompSymb.LESSEQ)
+            return op1.getVal() <= op2.getVal();
+        else if(compOp.getOp() == CompOp.CompSymb.GREATEREQ)
+            return op1.getVal() >= op2.getVal();
+        return false;
+    }
 }

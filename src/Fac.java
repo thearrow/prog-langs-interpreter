@@ -32,5 +32,11 @@ public class Fac {
         }
     }
 
-    void ExecFac() {}
+    public int getVal() {
+        if (!mult) {
+            return op.getVal();
+        } else {
+            return op.getVal()*fac.getVal();
+        }
+    }
 }

@@ -25,5 +25,21 @@ public class IdList {
         } else System.out.println(";");
     }
 
-    void ExecIdList() {}
+    void WriteIdList() {
+        id.OutputId();
+        if (il != null) {
+            il.WriteIdList();
+        }
+    }
+
+    public int ReadIdList(int pos){
+        id.setVal(Input.getVal(pos));
+        if (il != null) {
+            il.ReadIdList(pos + 1);
+        }
+
+        return pos+1;
+    }
+
+
 }

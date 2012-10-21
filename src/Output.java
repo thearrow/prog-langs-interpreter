@@ -18,6 +18,6 @@ public class Output {
     }
 
     void ExecOutput(){
-
+        idl.WriteIdList();
     }
 }

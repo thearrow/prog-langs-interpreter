@@ -1,7 +1,7 @@
 public class CompOp {
     private CompSymb cmp;
 
-    private enum CompSymb {
+    public enum CompSymb {
         NOTEQ, EQ, LESS, GREATER, LESSEQ, GREATEREQ
     }
 
@@ -50,6 +50,8 @@ public class CompOp {
         }
     }
 
-    void ExecCompOp() {}
+    public CompSymb getOp() {
+        return cmp;
+    }
 }
 

@@ -1,5 +1,6 @@
 public class Exp {
     private Fac fac;
+
     private enum PM {
         PLUS,
         MINUS,
@@ -42,5 +43,19 @@ public class Exp {
 
     void ExecExp(){
 
+    }
+
+    public int getVal() {
+
+        if (exp == null) {
+            return fac.getVal();
+        } else {
+            if (pm == PM.PLUS) {
+                return fac.getVal()+exp.getVal();
+            } else if (pm == PM.MINUS) {
+                return fac.getVal()-exp.getVal();
+            }
+        }
+        return 0;
     }
 }

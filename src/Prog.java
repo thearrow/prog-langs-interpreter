@@ -27,6 +27,6 @@ public class Prog {
     }
 
     void ExecProg(){
-
+        ss.ExecStmtSeq();
     }
 }

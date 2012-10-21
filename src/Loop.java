@@ -28,7 +28,11 @@ public class Loop {
         System.out.println("\tend;");
     }
 
-    void ExecLoop(){
+    void ExecLoop() {
+
+        while (c.EvalCond()) {
+            ss.ExecStmtSeq();
+        }
 
     }
 }

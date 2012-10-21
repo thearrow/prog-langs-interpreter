@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class Id {
     private static HashMap<String, Id> idSet = new HashMap<String, Id>();
     private String                     name;
-    private int                        val;
+    private Integer                    val;
     private Boolean                    declared;
     private Boolean                    initialized;
 
@@ -11,16 +11,20 @@ public class Id {
         name        = n;
         declared    = false;
         initialized = false;
-        val         = -1;
+        val         = null;
     }
 
     public static Id ParseId() {
         String token = Tokenizer.INSTANCE.getToken();
+
         if (idSet.containsKey(token)) {
             return idSet.get(token);
         } else {
             Id id = new Id(token);
+
+            id.declared = true;
             idSet.put(token, id);
+
             return id;
         }
     }
@@ -29,5 +33,25 @@ public class Id {
         System.out.print(name);
     }
 
-    void ExecId() {}
+    void OutputId() {
+        System.out.println(name + " = " + val);
+    }
+
+    public int getVal() {
+        return val;
+    }
+
+    public void setVal(int val) {
+        this.val    = val;
+        initialized = true;
+    }
+
+    public static void printAllIds() {
+        System.out.println("PRINTINGALL:");
+        for (Id tempid : idSet.values()) {
+            tempid.OutputId();
+        }
+        System.out.println("============");
+    }
 }
+

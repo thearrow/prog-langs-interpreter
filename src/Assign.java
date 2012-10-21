@@ -23,5 +23,7 @@ public class Assign {
         System.out.println(";");
     }
 
-    void ExecAssign() {}
+    void ExecAssign() {
+        id.setVal(exp.getVal());
+    }
 }

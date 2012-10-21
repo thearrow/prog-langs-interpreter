@@ -23,7 +23,7 @@ public class Cond {
 
     }
 
-    void ExecCond(){
-
+    public boolean EvalCond(){
+        return comp.EvalComp();
     }
 }

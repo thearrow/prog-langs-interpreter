@@ -1,10 +1,10 @@
 public class Op {
-    private int i;
+    private Integer i;
     private Id id;
     private Exp exp;
 
     public Op() {
-        i = -1;
+        i = null;
         id = null;
         exp = null;
     }
@@ -28,7 +28,7 @@ public class Op {
     }
 
     void PrintOp(){
-        if(i != -1) System.out.print(i);
+        if(i != null) System.out.print(i);
         if(id != null) id.PrintId();
         if(exp != null) {
             System.out.print("(");
@@ -37,7 +37,15 @@ public class Op {
         }
     }
 
-    void ExecOp(){
+    public int getVal() {
+        if (i != null) {
+            return i;
+        } else if(id != null){
+            return id.getVal();
+        } else if (exp != null) {
+            return exp.getVal();
+        }
 
+        return 0;
     }
 }
