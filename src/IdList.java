@@ -8,9 +8,10 @@ public class IdList {
     }
 
     void ParseIdList() {
-        id = new Id();
-        id.ParseId();
-        if (Tokenizer.INSTANCE.getToken() != 12) {
+        id = Id.ParseId();
+        Tokenizer.INSTANCE.skipToken();
+        if (!Tokenizer.INSTANCE.getToken().equals(";")) {
+            Tokenizer.INSTANCE.skipToken();
             il = new IdList();
             il.ParseIdList();
         } else {
@@ -21,9 +22,9 @@ public class IdList {
     void PrintIdList() {
         id.PrintId();
         if (il != null) {
-            System.out.print(", ");
+            System.out.print(",");
             il.PrintIdList();
-        }
+        } else System.out.println(";");
     }
 
     void ExecIdList() {}

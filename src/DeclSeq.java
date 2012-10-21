@@ -11,7 +11,7 @@ public class DeclSeq {
         d = new Decl();
         d.ParseDecl();
 
-        if(Tokenizer.INSTANCE.getToken() != 2){
+        if(!Tokenizer.INSTANCE.getToken().equals("begin")){
             ds = new DeclSeq();
             ds.ParseDeclSeq();
         }

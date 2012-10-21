@@ -1,4 +1,4 @@
-import java.util.Set;
+import java.util.HashMap;
 
 public class Id {
 
@@ -6,7 +6,7 @@ public class Id {
     private int val;
     private Boolean declared;
     private Boolean initialized;
-    private static Set<Id> idSet;
+    private static HashMap<String,Id> idSet = new HashMap<String, Id>();
 
     private Id(String n) {
         name = n;
@@ -15,12 +15,19 @@ public class Id {
         val = -1;
     }
 
-    public static void ParseId(){
-
+    public static Id ParseId(){
+        String token = Tokenizer.INSTANCE.getToken();
+        if(idSet.containsKey(token))
+            return idSet.get(token);
+        else{
+            Id id = new Id(token);
+            idSet.put(token, id);
+            return id;
+        }
     }
 
     void PrintId(){
-
+        System.out.print(name);
     }
 
     void ExecId(){

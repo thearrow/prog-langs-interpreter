@@ -134,11 +134,12 @@ public enum Tokenizer {
     private void produceOutput() {
         for (String token : tokens) {
             if (numbers.containsKey(token)) {
-                output.add(numbers.get(token).toString());
+                //output.add(numbers.get(token).toString());
+                output.add(token);
             } else if (token.matches("\\d*")) {
-                output.add("31");
+                output.add(token);
             } else if (token.matches("[A-Z]*\\d*")) {
-                output.add("32");
+                output.add(token);
             } else {
                 output.add("ERROR");
             }
@@ -148,17 +149,15 @@ public enum Tokenizer {
         output.add("33");
     }
 
-    public int getToken() {
+    public String getToken() {
         if (output.get(counter).equals("ERROR")) {
             System.out.println("Invalid Token Detected, Exiting.");
             System.exit(1);
         }
 
-        int token = Integer.parseInt(output.get(counter));
-
         //counter++;
 
-        return token;
+        return output.get(counter);
     }
 
     public void skipToken() {

@@ -12,7 +12,7 @@ public class Decl {
     }
 
     void PrintDecl() {
-        System.out.print("int");
+        System.out.print("int ");
         il.PrintIdList();
     }
 
