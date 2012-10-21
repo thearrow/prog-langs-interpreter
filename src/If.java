@@ -17,9 +17,11 @@ public class If {
         ss1 = new StmtSeq();
         ss1.ParseStmtSeq();
         if (!Tokenizer.INSTANCE.getToken().equals("end")) {
-            Tokenizer.INSTANCE.skipToken();
+            Tokenizer.INSTANCE.skipToken();//else
             ss2 = new StmtSeq();
             ss2.ParseStmtSeq();
+            Tokenizer.INSTANCE.skipToken();//end
+            Tokenizer.INSTANCE.skipToken();//;
         } else {
             Tokenizer.INSTANCE.skipToken();    // end
             Tokenizer.INSTANCE.skipToken();    // ;
@@ -38,5 +40,12 @@ public class If {
         System.out.println("\tend;");
     }
 
-    void ExecIf() {}
+    void ExecIf() {
+        if (c.EvalCond()) {
+            ss1.ExecStmtSeq();
+        } else {
+            ss2.ExecStmtSeq();
+        }
+
+    }
 }
