@@ -10,13 +10,14 @@ public class If {
     }
 
     void ParseIf() {
-        Tokenizer.INSTANCE.skipToken();
+        Tokenizer.INSTANCE.skipToken(); //if
         c = new Cond();
         c.ParseCond();
-        Tokenizer.INSTANCE.skipToken();
+        Tokenizer.INSTANCE.skipToken(); //then
         ss1 = new StmtSeq();
         ss1.ParseStmtSeq();
         if (!Tokenizer.INSTANCE.getToken().equals("end")) {
+            System.out.println(Tokenizer.INSTANCE.getToken());
             Tokenizer.INSTANCE.skipToken();
             ss2 = new StmtSeq();
             ss2.ParseStmtSeq();
@@ -32,7 +33,7 @@ public class If {
         System.out.println(" then");
         ss1.PrintStmtSeq();
         if (ss2 != null) {
-            System.out.println("else");
+            System.out.println("\telse");
             ss2.PrintStmtSeq();
         }
         System.out.println("\tend;");

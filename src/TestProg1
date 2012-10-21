@@ -16,6 +16,10 @@ program int X , Y , XY ;
 
                X = X-1;
 
+               else
+
+               X = X+1;
+
                end;
 
           end
