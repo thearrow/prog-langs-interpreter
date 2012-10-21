@@ -8,11 +8,11 @@ public class Prog {
     }
 
     void ParseProg(){
-        Tokenizer.INSTANCE.skipNext();
+        Tokenizer.INSTANCE.skipToken();
         ds = new DeclSeq();
         ds.ParseDeclSeq();
 
-        Tokenizer.INSTANCE.skipNext();
+        Tokenizer.INSTANCE.skipToken();
         ss = new StmtSeq();
         ss.ParseStmtSeq();
     }

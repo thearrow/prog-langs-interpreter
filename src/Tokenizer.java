@@ -148,7 +148,7 @@ public enum Tokenizer {
         output.add("33");
     }
 
-    public int getNext() {
+    public int getToken() {
         if (output.get(counter).equals("ERROR")) {
             System.out.println("Invalid Token Detected, Exiting.");
             System.exit(1);
@@ -156,12 +156,12 @@ public enum Tokenizer {
 
         int token = Integer.parseInt(output.get(counter));
 
-        counter++;
+        //counter++;
 
         return token;
     }
 
-    public void skipNext() {
+    public void skipToken() {
         counter++;
     }
 

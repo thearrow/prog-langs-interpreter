@@ -1,13 +1,20 @@
 public class Decl {
-    void ParseDecl(){
+    private IdList il;
 
+    public Decl() {
+        il = null;
     }
 
-    void PrintDecl(){
-
+    void ParseDecl() {
+        Tokenizer.INSTANCE.skipToken();
+        il = new IdList();
+        il.ParseIdList();
     }
 
-    void ExecDecl(){
-
+    void PrintDecl() {
+        System.out.print("int");
+        il.PrintIdList();
     }
+
+    void ExecDecl() {}
 }
