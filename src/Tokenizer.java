@@ -11,101 +11,82 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class Tokenizer {
+public enum Tokenizer {
+    INSTANCE;
 
-    private String program;
-    private ArrayList<String> tokens;
+    private String                   program;
+    private ArrayList<String>        tokens;
     private HashMap<String, Integer> numbers;
-    private ArrayList<String> output;
-    private int counter;
+    private ArrayList<String>        output;
+    private int                      counter;
 
-
-    public Tokenizer(String filename) {
-        try {
-            program = readFile(filename);
-        } catch (IOException e) {
-            System.err.println(e);
-            System.exit(1);
-        }
-
-        tokens = new ArrayList<String>();
-        numbers = new HashMap<String, Integer>();
-        output = new ArrayList<String>();
-        counter = 0;
-    }
-
-    public static void main(String[] args) {
-
-        if (args.length < 1) {
-            System.out.println("Please enter a filename to tokenize!\n");
-            System.exit(1);
-        }
-
-        //Read the input file
-        Tokenizer tokenizer = new Tokenizer(args[0]);
-
-        //Do tokenization
-        tokenizer.tokenize();
-
-        //Print the output
-        while (tokenizer.hasNext()) {
-            System.out.println(tokenizer.getNext());
-        }
-    }
-
-
-    private String readFile(String filepath) throws IOException {
-        //one-line file input to string from http://weblogs.java.net/blog/pat/archive/2004/10/stupid_scanner.html
-        return new Scanner(new File(filepath), "UTF-8").useDelimiter("\\A").next();
-    }
-
-
-    private void tokenize() {
+    private void tokenize(String filename) {
+        LoadFile(filename);
         splitProgram();
         handleSpecialCases();
         setUpNumberMap();
         produceOutput();
     }
 
+    private void LoadFile(String filename) {
+        try {
+            program = readFile(filename);
+        } catch (IOException e) {
+            System.err.println(e);
+            System.exit(1);
+        }
+        tokens  = new ArrayList<String>();
+        numbers = new HashMap<String, Integer>();
+        output  = new ArrayList<String>();
+        counter = 0;
+    }
+
+    private String readFile(String filepath) throws IOException {
+
+        // one-line file input to string from http://weblogs.java.net/blog/pat/archive/2004/10/stupid_scanner.html
+        return new Scanner(new File(filepath), "UTF-8").useDelimiter("\\A").next();
+    }
 
     private void splitProgram() {
-        //Set up the Scanner with RegExp Look-aheads and Look-behinds (to keep delimiters)
-        Scanner scn = new Scanner(program);
-        String symbs = "(&&)|(\\|\\|)|(!=)|(<=)|(>=)|[;,=!<>()\\+\\-\\*]";
+
+        // Set up the Scanner with RegExp Look-aheads and Look-behinds (to keep delimiters)
+        Scanner scn             = new Scanner(program);
+        String  symbs           = "(&&)|(\\|\\|)|(!=)|(<=)|(>=)|[;,=!<>()\\+\\-\\*]";
         Pattern special_symbols = Pattern.compile("\\s+|(?<=" + symbs + ")|(?=" + symbs + ")");
+
         scn.useDelimiter(special_symbols);
 
-        //Split the program
+        // Split the program
         while (scn.hasNext()) {
             tokens.add(scn.next());
         }
     }
 
-
     private void handleSpecialCases() {
-        //handle special cases for == | <= | >= | !=
+
+        // handle special cases for == | <= | >= | !=
         for (int i = 0; i < tokens.size(); i++) {
             String token = tokens.get(i);
 
-            //handle ==
+            // handle ==
             if (token.equals("=") && tokens.get(i + 1).equals("=")) {
                 tokens.set(i, "==");
                 tokens.remove(i + 1);
             }
 
-            //handle <=
+            // handle <=
             if (token.equals("=") && tokens.get(i - 1).equals("<")) {
                 tokens.set(i - 1, "<=");
                 tokens.remove(i);
             }
 
-            //handle >=
+            // handle >=
             if (token.equals("=") && tokens.get(i - 1).equals(">")) {
                 tokens.set(i - 1, ">=");
                 tokens.remove(i);
             }
 
-            //handle !=
+            // handle !=
             if (token.equals("=") && tokens.get(i - 1).equals("!")) {
                 tokens.set(i - 1, "!=");
                 tokens.remove(i);
@@ -113,9 +94,9 @@ public class Tokenizer {
         }
     }
 
-
     private void setUpNumberMap() {
-        //reserved words
+
+        // reserved words
         numbers.put("program", 1);
         numbers.put("begin", 2);
         numbers.put("end", 3);
@@ -128,7 +109,7 @@ public class Tokenizer {
         numbers.put("read", 10);
         numbers.put("write", 11);
 
-        //special symbols
+        // special symbols
         numbers.put(";", 12);
         numbers.put(",", 13);
         numbers.put("=", 14);
@@ -150,7 +131,6 @@ public class Tokenizer {
         numbers.put(">=", 30);
     }
 
-
     private void produceOutput() {
         for (String token : tokens) {
             if (numbers.containsKey(token)) {
@@ -163,30 +143,29 @@ public class Tokenizer {
                 output.add("ERROR");
             }
         }
-        //Add EOF token
+
+        // Add EOF token
         output.add("33");
     }
-
 
     public int getNext() {
         if (output.get(counter).equals("ERROR")) {
             System.out.println("Invalid Token Detected, Exiting.");
             System.exit(1);
         }
+
         int token = Integer.parseInt(output.get(counter));
+
         counter++;
 
         return token;
     }
 
-
     public void skipNext() {
         counter++;
     }
-
 
     public boolean hasNext() {
         return counter < output.size();
     }
 }
-
