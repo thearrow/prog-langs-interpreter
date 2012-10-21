@@ -20,7 +20,7 @@ public enum Tokenizer {
     private ArrayList<String>        output;
     private int                      counter;
 
-    private void tokenize(String filename) {
+    public void tokenize(String filename) {
         LoadFile(filename);
         splitProgram();
         handleSpecialCases();

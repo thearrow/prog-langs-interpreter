@@ -1,8 +1,20 @@
 /*
-    Programming Languages Interpreter
-    Jacob Klingler
-    klinglej
-    klingler.45@osu.edu
- */
+Interpreter for Principles of Programming Languages
+Jacob Klingler / Klingler.45
+10/20/12
+See README, DOC
+*/
+
 public class Interpreter {
+    public static void main(String[] args) {
+        if (args.length < 2) {
+            System.out.println("Please enter proper arguments!\n");
+            System.exit(1);
+        }
+
+        // Initialize Tokenizer
+        Tokenizer.INSTANCE.tokenize(args[0]);
+    }
 }
+
+
