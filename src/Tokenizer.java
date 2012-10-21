@@ -137,9 +137,9 @@ public enum Tokenizer {
                 //output.add(numbers.get(token).toString());
                 output.add(token);
             } else if (token.matches("\\d*")) {
-                output.add(token);
+                output.add(token);  //31
             } else if (token.matches("[A-Z]*\\d*")) {
-                output.add(token);
+                output.add(token);  //32
             } else {
                 output.add("ERROR");
             }
