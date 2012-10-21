@@ -15,25 +15,25 @@ public class Stmt {
 
     void ParseStmt() {
         String token = Tokenizer.INSTANCE.getToken();
-
         if (token.equals("if")) {
             i = new If();
             i.ParseIf();
         }
-        if (token.equals("while")) {
+        else if (token.equals("while")) {
             loop = new Loop();
             loop.ParseLoop();
         }
-        if (token.equals("read")) {
+        else if (token.equals("read")) {
             in = new Input();
             in.ParseInput();
         }
-        if (token.equals("write")) {
+        else if (token.equals("write")) {
             out = new Output();
             out.ParseOutput();
         }
         else {
-            //handle Assign
+            a = new Assign();
+            a.ParseAssign();
         }
     }
 

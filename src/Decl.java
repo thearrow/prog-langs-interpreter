@@ -6,7 +6,8 @@ public class Decl {
     }
 
     void ParseDecl() {
-        Tokenizer.INSTANCE.skipToken();
+        if(Tokenizer.INSTANCE.getToken().equals("int"))
+            Tokenizer.INSTANCE.skipToken();
         il = new IdList();
         il.ParseIdList();
     }

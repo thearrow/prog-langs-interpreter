@@ -6,9 +6,10 @@ public class Output {
     }
 
     void ParseOutput(){
-        Tokenizer.INSTANCE.skipToken();
+        Tokenizer.INSTANCE.skipToken(); //write
         idl = new IdList();
         idl.ParseIdList();
+        Tokenizer.INSTANCE.skipToken(); //;
     }
 
     void PrintOutput(){

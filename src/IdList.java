@@ -9,13 +9,11 @@ public class IdList {
 
     void ParseIdList() {
         id = Id.ParseId();
-        Tokenizer.INSTANCE.skipToken();
+        Tokenizer.INSTANCE.skipToken(); //id
         if (!Tokenizer.INSTANCE.getToken().equals(";")) {
-            Tokenizer.INSTANCE.skipToken();
+            Tokenizer.INSTANCE.skipToken(); //,
             il = new IdList();
             il.ParseIdList();
-        } else {
-            Tokenizer.INSTANCE.skipToken();
         }
     }
 

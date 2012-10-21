@@ -16,7 +16,6 @@ public class Id {
 
     public static Id ParseId() {
         String token = Tokenizer.INSTANCE.getToken();
-
         if (idSet.containsKey(token)) {
             return idSet.get(token);
         } else {

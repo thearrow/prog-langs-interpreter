@@ -10,11 +10,10 @@ public class DeclSeq {
     void ParseDeclSeq() {
         d = new Decl();
         d.ParseDecl();
+        Tokenizer.INSTANCE.skipToken();
         if (!Tokenizer.INSTANCE.getToken().equals("begin")) {
             ds = new DeclSeq();
             ds.ParseDeclSeq();
-        } else {
-            Tokenizer.INSTANCE.skipToken();
         }
     }
 

@@ -156,7 +156,6 @@ public enum Tokenizer {
         }
 
         //counter++;
-
         return output.get(counter);
     }
 
