@@ -16,7 +16,8 @@ public class Loop {
         ss = new StmtSeq();
         ss.ParseStmtSeq();
 
-        Tokenizer.INSTANCE.skipToken();
+        Tokenizer.INSTANCE.skipToken(); //end
+        Tokenizer.INSTANCE.skipToken(); //;
     }
 
     void PrintLoop(){
@@ -24,7 +25,7 @@ public class Loop {
         c.PrintCond();
         System.out.println(" loop");
         ss.PrintStmtSeq();
-        System.out.println("end");
+        System.out.println("\tend;");
     }
 
     void ExecLoop(){

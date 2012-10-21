@@ -19,6 +19,7 @@ public class Prog {
 
     void PrintProg(){
         System.out.println("program");
+        System.out.print("\t");
         ds.PrintDeclSeq();
         System.out.println("begin");
         ss.PrintStmtSeq();

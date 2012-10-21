@@ -14,7 +14,6 @@ public class Assign {
         exp = new Exp();
         exp.ParseExp();
         Tokenizer.INSTANCE.skipToken();    // ;
-        System.out.println(Tokenizer.INSTANCE.getToken());
     }
 
     void PrintAssign() {

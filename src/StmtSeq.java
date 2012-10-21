@@ -17,6 +17,7 @@ public class StmtSeq {
     }
 
     void PrintStmtSeq(){
+        System.out.print("\t");
         st.PrintStmt();
         if (sq != null) {
             sq.PrintStmtSeq();

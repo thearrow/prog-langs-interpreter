@@ -21,20 +21,21 @@ public class If {
             ss2 = new StmtSeq();
             ss2.ParseStmtSeq();
         } else {
-            Tokenizer.INSTANCE.skipToken();
-            //?Tokenizer.INSTANCE.skipToken();
+            Tokenizer.INSTANCE.skipToken(); //end
+            Tokenizer.INSTANCE.skipToken(); //;
         }
     }
 
     void PrintIf() {
         System.out.print("if ");
         c.PrintCond();
-        System.out.println("then");
+        System.out.println(" then");
         ss1.PrintStmtSeq();
         if (ss2 != null) {
             System.out.println("else");
             ss2.PrintStmtSeq();
         }
+        System.out.println("\tend;");
     }
 
     void ExecIf() {}

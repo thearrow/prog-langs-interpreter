@@ -1,14 +1,21 @@
 program int X , Y , XY ;
 
-begin
-    read X;
-    write X;
-    Y = 0;
-    X = Y+(4*2+X);
+          begin read X ; Y = 0 ;
 
-    while (X>0) loop
-        read XY;
-    end
+               while ( X > 0 ) loop
 
+                              read XY ; write XY ;
 
-end
+                              Y = Y + XY ; X = X - 1 ;
+
+                          end ;
+
+               write Y ;
+
+               if ( X >= Y ) then
+
+               X = X-1;
+
+               end;
+
+          end
