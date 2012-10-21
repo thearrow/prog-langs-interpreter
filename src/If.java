@@ -22,12 +22,20 @@ public class If {
             ss2.ParseStmtSeq();
         } else {
             Tokenizer.INSTANCE.skipToken();
-            Tokenizer.INSTANCE.skipToken();
+            //?Tokenizer.INSTANCE.skipToken();
         }
     }
 
-    void PrintIf() {}
+    void PrintIf() {
+        System.out.print("if ");
+        c.PrintCond();
+        System.out.println("then");
+        ss1.PrintStmtSeq();
+        if (ss2 != null) {
+            System.out.println("else");
+            ss2.PrintStmtSeq();
+        }
+    }
 
     void ExecIf() {}
 }
-

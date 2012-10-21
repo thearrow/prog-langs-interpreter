@@ -37,7 +37,13 @@ public class Stmt {
         }
     }
 
-    void PrintStmt() {}
+    void PrintStmt() {
+        if(a != null) a.PrintAssign();
+        if(i != null) i.PrintIf();
+        if(loop != null) loop.PrintLoop();
+        if(in != null) in.PrintInput();
+        if(out != null) out.PrintOutput();
+    }
 
     void ExecStmt() {}
 }
