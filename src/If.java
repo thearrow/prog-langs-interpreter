@@ -10,20 +10,19 @@ public class If {
     }
 
     void ParseIf() {
-        Tokenizer.INSTANCE.skipToken(); //if
+        Tokenizer.INSTANCE.skipToken();    // if
         c = new Cond();
         c.ParseCond();
-        Tokenizer.INSTANCE.skipToken(); //then
+        Tokenizer.INSTANCE.skipToken();    // then
         ss1 = new StmtSeq();
         ss1.ParseStmtSeq();
         if (!Tokenizer.INSTANCE.getToken().equals("end")) {
-            System.out.println(Tokenizer.INSTANCE.getToken());
             Tokenizer.INSTANCE.skipToken();
             ss2 = new StmtSeq();
             ss2.ParseStmtSeq();
         } else {
-            Tokenizer.INSTANCE.skipToken(); //end
-            Tokenizer.INSTANCE.skipToken(); //;
+            Tokenizer.INSTANCE.skipToken();    // end
+            Tokenizer.INSTANCE.skipToken();    // ;
         }
     }
 

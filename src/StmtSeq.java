@@ -1,5 +1,5 @@
 public class StmtSeq {
-    private Stmt st;
+    private Stmt    st;
     private StmtSeq sq;
 
     public StmtSeq() {
@@ -7,16 +7,16 @@ public class StmtSeq {
         sq = null;
     }
 
-    void ParseStmtSeq(){
+    void ParseStmtSeq() {
         st = new Stmt();
         st.ParseStmt();
-        if(!Tokenizer.INSTANCE.getToken().equals("end") && !Tokenizer.INSTANCE.getToken().equals("else")){
+        if (!Tokenizer.INSTANCE.getToken().equals("end") &&!Tokenizer.INSTANCE.getToken().equals("else")) {
             sq = new StmtSeq();
             sq.ParseStmtSeq();
         }
     }
 
-    void PrintStmtSeq(){
+    void PrintStmtSeq() {
         System.out.print("\t");
         st.PrintStmt();
         if (sq != null) {
@@ -24,7 +24,5 @@ public class StmtSeq {
         }
     }
 
-    void ExecStmtSeq(){
-
-    }
+    void ExecStmtSeq() {}
 }
