@@ -10,6 +10,6 @@ program int X , Y , XY ;
 
                           end ;
 
-               write Y ;
+               write Y,X ;
 
           end
