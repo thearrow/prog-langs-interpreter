@@ -2,11 +2,13 @@ public class Comp {
     private Op     op1;
     private Op     op2;
     private CompOp compOp;
+    private Boolean negated;
 
     public Comp() {
         op1    = null;
         op2    = null;
         compOp = null;
+        negated = false;
     }
 
     void ParseComp() {
@@ -21,6 +23,7 @@ public class Comp {
     }
 
     void PrintComp() {
+        if(negated) System.out.print("!");
         System.out.print("(");
         op1.PrintOp();
         compOp.PrintCompOp();
@@ -28,19 +31,29 @@ public class Comp {
         System.out.print(")");
     }
 
+    void negate(){
+        negated = true;
+    }
+
     public boolean EvalComp() {
+        Boolean result = false;
+
         if(compOp.getOp() == CompOp.CompSymb.EQ)
-            return op1.getVal() == op2.getVal();
+            result = op1.getVal() == op2.getVal();
         else if(compOp.getOp() == CompOp.CompSymb.NOTEQ)
-            return op1.getVal() != op2.getVal();
+            result = op1.getVal() != op2.getVal();
         else if(compOp.getOp() == CompOp.CompSymb.LESS)
-            return op1.getVal() < op2.getVal();
+            result = op1.getVal() < op2.getVal();
         else if(compOp.getOp() == CompOp.CompSymb.GREATER)
-            return op1.getVal() > op2.getVal();
+            result = op1.getVal() > op2.getVal();
         else if(compOp.getOp() == CompOp.CompSymb.LESSEQ)
-            return op1.getVal() <= op2.getVal();
+            result = op1.getVal() <= op2.getVal();
         else if(compOp.getOp() == CompOp.CompSymb.GREATEREQ)
-            return op1.getVal() >= op2.getVal();
-        return false;
+            result = op1.getVal() >= op2.getVal();
+
+        if(negated)
+            result = !result;
+
+        return result;
     }
 }
