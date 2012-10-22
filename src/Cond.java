@@ -38,6 +38,7 @@ public class Cond {
                 c2.ParseCond();
                 Tokenizer.INSTANCE.skipToken();    // ]
             } else if (token.equals("||")) {
+                //TODO: change to "or"
                 Tokenizer.INSTANCE.skipToken();    // ||
                 or = true;
                 c2 = new Cond();

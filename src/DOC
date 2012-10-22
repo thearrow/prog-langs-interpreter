@@ -1,10 +1,24 @@
 //Jacob Klingler
+//klinglej
+//klingler.45@osu.edu
 
 Interpreter Design:
+My interpreter uses the recursive-descent, object-oriented design we discussed in class.
+I modified my Tokenizer to use the Singleton Design pattern (as an enum), as specified by (https://sites.google.com/site/io/effective-java-reloaded).
+Most classes have Parse, Print, and Execute methods available.
+Comparison-related classes have Evaluate() instead of Execute() methods, which return a boolean.
+Identifier-related classes have getVal() methods which return their value as an integer.
+Most of the code should be fairly clear, I tried to include the skipped token in the comments.
 
 
 Interpterer Usage:
-As a client of the Interpreter,
+To use the interpreter, simply compile and run it as outlined in the README file.
+The output includes a printout of the program source code, followed by the result of running the program.
 
 
 Interpreter Testing:
+I based my testing on the sample programs provided on the newsgroup.
+I modified the first program to test a wider variety of statements.
+The test programs and data files are included.
+There may be a few bugs on fringe cases, but as before most well-formed input programs should execute correctly.
+Printing the program source code currently only uses one indent level, further indenting would require a bit more work and is not necessary given that this feature is primarily for verification that the program was parsed correctly.

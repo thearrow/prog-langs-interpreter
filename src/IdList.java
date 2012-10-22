@@ -9,9 +9,9 @@ public class IdList {
 
     void ParseIdList() {
         id = Id.ParseId();
-        Tokenizer.INSTANCE.skipToken(); //id
+        Tokenizer.INSTANCE.skipToken();    // id
         if (!Tokenizer.INSTANCE.getToken().equals(";")) {
-            Tokenizer.INSTANCE.skipToken(); //,
+            Tokenizer.INSTANCE.skipToken();    // ,
             il = new IdList();
             il.ParseIdList();
         }
@@ -22,7 +22,9 @@ public class IdList {
         if (il != null) {
             System.out.print(",");
             il.PrintIdList();
-        } else System.out.println(";");
+        } else {
+            System.out.println(";");
+        }
     }
 
     void WriteIdList() {
@@ -32,14 +34,12 @@ public class IdList {
         }
     }
 
-    public int ReadIdList(int pos){
+    public int ReadIdList(int pos) {
         id.setVal(Input.getVal(pos));
         if (il != null) {
             il.ReadIdList(pos + 1);
         }
 
-        return pos+1;
+        return pos + 1;
     }
-
-
 }
