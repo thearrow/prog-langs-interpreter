@@ -15,7 +15,8 @@ public class Input {
                 input.add(scn.next());
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Couldn't find the data file.");
+            System.out.println("Couldn't find the data file!");
+            System.exit(0);
         }
     }
 
