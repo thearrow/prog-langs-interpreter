@@ -2,13 +2,11 @@ public class Comp {
     private Op     op1;
     private Op     op2;
     private CompOp compOp;
-    private Boolean negated;
 
     public Comp() {
         op1    = null;
         op2    = null;
         compOp = null;
-        negated = false;
     }
 
     void ParseComp() {
@@ -23,16 +21,11 @@ public class Comp {
     }
 
     void PrintComp() {
-        if(negated) System.out.print("!");
         System.out.print("(");
         op1.PrintOp();
         compOp.PrintCompOp();
         op2.PrintOp();
         System.out.print(")");
-    }
-
-    void negate(){
-        negated = true;
     }
 
     public boolean EvalComp() {
@@ -50,9 +43,6 @@ public class Comp {
             result = op1.getVal() <= op2.getVal();
         else if(compOp.getOp() == CompOp.CompSymb.GREATEREQ)
             result = op1.getVal() >= op2.getVal();
-
-        if(negated)
-            result = !result;
 
         return result;
     }

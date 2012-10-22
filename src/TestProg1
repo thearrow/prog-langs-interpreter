@@ -2,7 +2,7 @@ program int X , Y , XY ;
 
           begin read X ; Y = 0 ;
 
-               while !( X <= 0 ) loop
+               while ![( X > 0 ) && (X < 100)] loop
 
                               read XY ; write XY ;
 
