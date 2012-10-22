@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Input {
-    private IdList idl;
-    private static int pos = 0;
+    private static int               pos   = 0;
     private static ArrayList<String> input = new ArrayList<String>();
 
     static {
         try {
             Scanner scn = new Scanner(new File(Interpreter.data), "UTF-8").useDelimiter("\\s+");
+
             while (scn.hasNext()) {
                 input.add(scn.next());
             }
@@ -19,23 +19,25 @@ public class Input {
         }
     }
 
+    private IdList idl;
+
     public Input() {
         idl = null;
     }
 
-    void ParseInput(){
-        Tokenizer.INSTANCE.skipToken(); //read
+    void ParseInput() {
+        Tokenizer.INSTANCE.skipToken();    // read
         idl = new IdList();
         idl.ParseIdList();
-        Tokenizer.INSTANCE.skipToken(); //;
+        Tokenizer.INSTANCE.skipToken();    // ;
     }
 
-    void PrintInput(){
+    void PrintInput() {
         System.out.print("read ");
         idl.PrintIdList();
     }
 
-    void ExecInput(){
+    void ExecInput() {
         pos = idl.ReadIdList(pos);
     }
 
@@ -43,6 +45,7 @@ public class Input {
         if (p >= input.size()) {
             System.out.println("Error! Trying to read values that aren't in the data file.");
         }
+
         return Integer.valueOf(input.get(p));
     }
 }
