@@ -2,6 +2,10 @@
 //klinglej
 //klingler.45@osu.edu
 
+**** NOTICE! **** My interpreter uses '||' instead of 'or' in the Core BNF ****
+Just to make my life easier, and to stay consistent with other languages.
+I hope that's okay.
+
 File List:
 Assign.java     - The Assignment class
 Comp.java       - The Comparison class

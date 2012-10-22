@@ -2,6 +2,10 @@
 //klinglej
 //klingler.45@osu.edu
 
+**** NOTICE! **** My interpreter uses '||' instead of 'or' in the Core BNF ****
+Just to make my life easier, and to stay consistent with other languages.
+I hope that's okay.
+
 Interpreter Design:
 My interpreter uses the recursive-descent, object-oriented design we discussed in class.
 I modified my Tokenizer to use the Singleton Design pattern (as an enum), as specified by (https://sites.google.com/site/io/effective-java-reloaded).
@@ -18,7 +22,7 @@ The output includes a printout of the program source code, followed by the resul
 
 Interpreter Testing:
 I based my testing on the sample programs provided on the newsgroup.
-I modified the first program to test a wider variety of statements.
+I modified the first program to test a wider variety of statements (program logic is not changed).
 The test programs and data files are included.
 There may be a few bugs on fringe cases, but as before most well-formed input programs should execute correctly.
 Printing the program source code currently only uses one indent level, further indenting would require a bit more work and is not necessary given that this feature is primarily for verification that the program was parsed correctly.
