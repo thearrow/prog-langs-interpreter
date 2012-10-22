@@ -31,18 +31,19 @@ public class Comp {
     public boolean EvalComp() {
         Boolean result = false;
 
-        if(compOp.getOp() == CompOp.CompSymb.EQ)
+        if (compOp.getOp() == CompOp.CompSymb.EQ) {
             result = op1.getVal() == op2.getVal();
-        else if(compOp.getOp() == CompOp.CompSymb.NOTEQ)
+        } else if (compOp.getOp() == CompOp.CompSymb.NOTEQ) {
             result = op1.getVal() != op2.getVal();
-        else if(compOp.getOp() == CompOp.CompSymb.LESS)
+        } else if (compOp.getOp() == CompOp.CompSymb.LESS) {
             result = op1.getVal() < op2.getVal();
-        else if(compOp.getOp() == CompOp.CompSymb.GREATER)
+        } else if (compOp.getOp() == CompOp.CompSymb.GREATER) {
             result = op1.getVal() > op2.getVal();
-        else if(compOp.getOp() == CompOp.CompSymb.LESSEQ)
+        } else if (compOp.getOp() == CompOp.CompSymb.LESSEQ) {
             result = op1.getVal() <= op2.getVal();
-        else if(compOp.getOp() == CompOp.CompSymb.GREATEREQ)
+        } else if (compOp.getOp() == CompOp.CompSymb.GREATEREQ) {
             result = op1.getVal() >= op2.getVal();
+        }
 
         return result;
     }
