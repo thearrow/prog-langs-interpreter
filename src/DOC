@@ -2,9 +2,8 @@
 //klinglej
 //klingler.45@osu.edu
 
-**** NOTICE! **** My interpreter uses '||' instead of 'or' in the Core BNF ****
-Just to make my life easier, and to stay consistent with other languages.
-I hope that's okay.
+**** FYI: My interpreter uses '||' instead of 'or' in the Core BNF ****
+...As specified in the Tokenizer assignment
 
 Interpreter Design:
 My interpreter uses the recursive-descent, object-oriented design we discussed in class.
