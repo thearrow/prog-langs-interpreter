@@ -45,13 +45,5 @@ public class Id {
         this.val    = val;
         initialized = true;
     }
-
-    public static void printAllIds() {
-        System.out.println("PRINTINGALL:");
-        for (Id tempid : idSet.values()) {
-            tempid.OutputId();
-        }
-        System.out.println("============");
-    }
 }
 

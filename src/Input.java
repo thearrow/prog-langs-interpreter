@@ -41,9 +41,8 @@ public class Input {
 
     public static int getVal(int p) {
         if (p >= input.size()) {
-            //System.exit(1);
+            System.out.println("Error! Trying to read values that aren't in the data file.");
         }
-        //System.out.println("looking at:" + p);
         return Integer.valueOf(input.get(p));
     }
 }
