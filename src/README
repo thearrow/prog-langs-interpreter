@@ -1,0 +1,39 @@
+//Jacob Klingler
+//klinglej
+//klingler.45@osu.edu
+
+File List:
+Assign.java     - The Assignment class
+Comp.java       - The Comparison class
+CompOp.java     - The Comparison Operator class
+Cond.java       - The Condition class
+Decl.java       - The Declaration class
+DeclSeq.java    - The Declaration Sequence class
+DOC             - Extra documentation
+Exp.java        - The Expression class
+Fac.java        - The Factor class
+Id.java         - The Identifier class
+IdList.java     - The Identifier List class
+If.java         - The If class
+Input.java      - The Input class
+Interpreter.java- *The Main Interpreter class*
+Loop.java       - The Loop class
+Op.java         - The Operand class
+Output.java     - The Output class
+Prog.java       - The Program class
+README          - This file
+Stmt.java       - The Statement class
+StmtSeq.java    - The Statement Sequence class
+TestProg1       - Example CORE program file 1
+TestProg1Data   - Example data file for TestProg1
+TestProg2       - Example CORE program file 2
+TestProg2Data1  - Example data file for TestProg2
+TestProg2Data2  - Example data file for TestProg2
+Tokenizer.java  - The Tokenizer class
+
+To Compile:
+javac Interpreter.java
+
+To Run:
+java Interpreter TestProg1 TestProg1Data
+
