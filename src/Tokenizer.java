@@ -42,13 +42,11 @@ public enum Tokenizer {
     }
 
     private String readFile(String filepath) throws IOException {
-
         // one-line file input to string from http://weblogs.java.net/blog/pat/archive/2004/10/stupid_scanner.html
         return new Scanner(new File(filepath), "UTF-8").useDelimiter("\\A").next();
     }
 
     private void splitProgram() {
-
         // Set up the Scanner with RegExp Look-aheads and Look-behinds (to keep delimiters)
         Scanner scn             = new Scanner(program);
         String  symbs           = "(&&)|(\\|\\|)|(!=)|(<=)|(>=)|[;,=!<>()\\+\\-\\*]";
@@ -95,7 +93,6 @@ public enum Tokenizer {
     }
 
     private void setUpNumberMap() {
-
         // reserved words
         numbers.put("program", 1);
         numbers.put("begin", 2);
@@ -144,9 +141,6 @@ public enum Tokenizer {
                 output.add("ERROR");
             }
         }
-
-        // Add EOF token
-        output.add("33");
     }
 
     public String getToken() {
@@ -155,15 +149,10 @@ public enum Tokenizer {
             System.exit(1);
         }
 
-        //counter++;
         return output.get(counter);
     }
 
     public void skipToken() {
         counter++;
-    }
-
-    public boolean hasNext() {
-        return counter < output.size();
     }
 }
