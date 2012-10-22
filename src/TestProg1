@@ -1,15 +1,21 @@
-program int X , Y , XY ;
+program
+int X , Y , XY ;
 
-          begin read X ; Y = 0 ;
+begin
+   read X;
+   Y = 0;
 
-               while ![( X > 0 ) && (X < 100)] loop
+   while ![( X > 0 ) && (X < 100)] loop
+      read XY;
+      if [(XY >= 0) || (XY <= 0)] then
+        write XY;
+        else
+        write XY;
+      end;
+      Y = Y+XY;
+      X = X-1;
+    end;
 
-                              read XY ; write XY ;
+   write X,Y;
 
-                              Y = Y + XY ; X = X - 1 ;
-
-                          end ;
-
-               write Y,X ;
-
-          end
+end
