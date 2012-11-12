@@ -1,0 +1,5 @@
+Programming Languages Lab - Interpreter
+
+This assignment was to write an Interpreter for the fictional "Core BNF" programming language.
+
+The program first tokenizes the input file, then parses the tokens, then prints the parsed program, and finally executes the parsed program with output to the console.
